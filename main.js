@@ -17,7 +17,6 @@ clickMinus.addEventListener('click', () => {
 });
 
 clickReset.addEventListener('click', () => {
-	console.log('Hello');
 	count = 0;
 	clickCount.innerHTML = count;
 	localStorage.setItem(window.location.hostname + 'count', count);
