@@ -2,12 +2,19 @@
   "name": "Click Counter",
   "description": "Build an Extension!",
   "version": "1.0",
-  "manifest_version": 3, 
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+	"type": "module"
+  },
   "content_scripts": [ {
     "matches": ["<all_urls>"],
-    "js": ["clickCount.js"]
+	"run_at": "document_idle",
+	"all_frames": true,
+    "js": ["clickCount.js"],
+    "css": ["clickCount.css"]
   } ],
-  "permissions": ["storage"],
+  "permissions": ["tabs", "storage", "activeTab"],
   "action": {
     "default_icon": {
       "16": "/images/countdown16.png",
